@@ -33,33 +33,32 @@ package com.raywenderlich.android.majesticreader.framework
 import android.app.Application
 import com.raywenderlich.android.majesticreader.domain.repository.BookmarkRepository
 import com.raywenderlich.android.majesticreader.domain.repository.DocumentRepository
-import com.raywenderlich.android.majesticreader.domain.usercase.*
+import com.raywenderlich.android.majesticreader.domain.usecase.*
 import com.raywenderlich.android.majesticreader.framework.db.InMemoryOpenDocumentDataSource
 
 class MajesticReaderApplication : Application() {
 
-  override fun onCreate() {
-    super.onCreate()
+    override fun onCreate() {
+        super.onCreate()
 
-    val bookmarkRepository = BookmarkRepository(RoomBookmarkDataSource(this))
-    val documentRepository = DocumentRepository(
-        RoomDocumentDataSource(this),
-        InMemoryOpenDocumentDataSource()
-    )
-
-    MajesticViewModelFactory.inject(
-        this,
-        Interactors(
-            AddBookmark(bookmarkRepository),
-            GetBookmarks(bookmarkRepository),
-            RemoveBookmark(bookmarkRepository),
-            AddDocument(documentRepository),
-            GetDocuments(documentRepository),
-            RemoveDocument(documentRepository),
-            GetOpenDocument(documentRepository),
-            SetOpenDocument(documentRepository)
+        val bookmarkRepository = BookmarkRepository(RoomBookmarkDataSource(this))
+        val documentRepository = DocumentRepository(
+            RoomDocumentDataSource(this),
+            InMemoryOpenDocumentDataSource()
         )
-    )
-  }
 
+        MajesticViewModelFactory.inject(
+            this,
+            Usecases(
+                AddBookmark(bookmarkRepository),
+                GetBookmarks(bookmarkRepository),
+                RemoveBookmark(bookmarkRepository),
+                AddDocument(documentRepository),
+                GetDocuments(documentRepository),
+                RemoveDocument(documentRepository),
+                GetOpenDocument(documentRepository),
+                SetOpenDocument(documentRepository)
+            )
+        )
+    }
 }

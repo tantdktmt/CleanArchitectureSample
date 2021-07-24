@@ -1,8 +1,8 @@
 package com.raywenderlich.android.majesticreader.framework
 
-import com.raywenderlich.android.majesticreader.domain.usercase.*
+import com.raywenderlich.android.majesticreader.domain.usecase.*
 
-data class Interactors(
+data class Usecases(
     val addBookmark: AddBookmark,
     val getBookmarks: GetBookmarks,
     val deleteBookmark: RemoveBookmark,

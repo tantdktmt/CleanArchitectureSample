@@ -34,5 +34,5 @@ import com.raywenderlich.android.majesticreader.domain.entity.Document
 
 interface MainActivityDelegate {
 
-  fun openDocument(document: Document)
+    fun openDocument(document: Document)
 }

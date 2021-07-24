@@ -100,5 +100,4 @@ class LibraryFragment : Fragment() {
             super.onActivityResult(requestCode, resultCode, data)
         }
     }
-
 }

@@ -44,31 +44,31 @@ class BookmarksAdapter(
     private val itemClickListener: (Bookmark) -> Unit
 ) : RecyclerView.Adapter<BookmarksAdapter.ViewHolder>() {
 
-  class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-    val titleTextView: TextView = view.bookmarkNameTextView
-  }
+    class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+        val titleTextView: TextView = view.bookmarkNameTextView
+    }
 
-  override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-    return ViewHolder(
-        LayoutInflater.from(parent.context)
-            .inflate(R.layout.item_bookmark, parent, false)
-    )
-  }
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+        return ViewHolder(
+            LayoutInflater.from(parent.context)
+                .inflate(R.layout.item_bookmark, parent, false)
+        )
+    }
 
-  override fun getItemCount() = bookmarks.size
+    override fun getItemCount() = bookmarks.size
 
-  override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-    holder.titleTextView.text = holder.itemView.resources.getString(
-        R.string.page_bookmark_format,
-        bookmarks[position].page
-    )
-    holder.itemView.setOnClickListener { itemClickListener.invoke(bookmarks[position]) }
-  }
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+        holder.titleTextView.text = holder.itemView.resources.getString(
+            R.string.page_bookmark_format,
+            bookmarks[position].page
+        )
+        holder.itemView.setOnClickListener { itemClickListener.invoke(bookmarks[position]) }
+    }
 
-  fun update(newBookmarks: List<Bookmark>) {
-    bookmarks.clear()
-    bookmarks.addAll(newBookmarks)
+    fun update(newBookmarks: List<Bookmark>) {
+        bookmarks.clear()
+        bookmarks.addAll(newBookmarks)
 
-    notifyDataSetChanged()
-  }
+        notifyDataSetChanged()
+    }
 }

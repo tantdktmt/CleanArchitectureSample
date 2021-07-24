@@ -30,4 +30,4 @@
 
 package com.raywenderlich.android.majesticreader.domain.entity
 
-data class Bookmark (val id: Int = 0, val page: Int)
+data class Bookmark(val id: Int = 0, val page: Int)

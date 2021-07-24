@@ -36,24 +36,24 @@ import androidx.lifecycle.ViewModelProvider
 
 object MajesticViewModelFactory : ViewModelProvider.Factory {
 
-  lateinit var application: Application
+    lateinit var application: Application
 
-  lateinit var dependencies: Interactors
+    lateinit var dependencies: Usecases
 
-  fun inject(application: Application, dependencies: Interactors) {
-    MajesticViewModelFactory.application = application
-    MajesticViewModelFactory.dependencies = dependencies
-  }
-
-  override fun <T : ViewModel?> create(modelClass: Class<T>): T {
-    if(MajesticViewModel::class.java.isAssignableFrom(modelClass)) {
-      return modelClass.getConstructor(Application::class.java, Interactors::class.java)
-          .newInstance(
-              application,
-              dependencies)
-    } else {
-      throw IllegalStateException("ViewModel must extend MajesticViewModel")
+    fun inject(application: Application, dependencies: Usecases) {
+        MajesticViewModelFactory.application = application
+        MajesticViewModelFactory.dependencies = dependencies
     }
-  }
 
+    override fun <T : ViewModel?> create(modelClass: Class<T>): T {
+        if (MajesticViewModel::class.java.isAssignableFrom(modelClass)) {
+            return modelClass.getConstructor(Application::class.java, Usecases::class.java)
+                .newInstance(
+                    application,
+                    dependencies
+                )
+        } else {
+            throw IllegalStateException("ViewModel must extend MajesticViewModel")
+        }
+    }
 }

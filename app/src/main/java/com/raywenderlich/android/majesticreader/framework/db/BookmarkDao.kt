@@ -9,12 +9,12 @@ import androidx.room.Query
 @Dao
 interface BookmarkDao {
 
-  @Insert(onConflict = REPLACE)
-  suspend fun addBookmark(bookmark: BookmarkEntity)
+    @Insert(onConflict = REPLACE)
+    suspend fun addBookmark(bookmark: BookmarkEntity)
 
-  @Query("SELECT * FROM bookmark WHERE documentUri = :documentUri")
-  suspend fun getBookmarks(documentUri: String): List<BookmarkEntity>
+    @Query("SELECT * FROM bookmark WHERE documentUri = :documentUri")
+    suspend fun getBookmarks(documentUri: String): List<BookmarkEntity>
 
-  @Delete
-  suspend fun removeBookmark(bookmark: BookmarkEntity)
+    @Delete
+    suspend fun removeBookmark(bookmark: BookmarkEntity)
 }

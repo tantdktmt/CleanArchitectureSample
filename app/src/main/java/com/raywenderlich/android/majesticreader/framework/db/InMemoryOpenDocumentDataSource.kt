@@ -5,11 +5,11 @@ import com.raywenderlich.android.majesticreader.domain.entity.Document
 
 class InMemoryOpenDocumentDataSource : OpenDocumentDataSource {
 
-  private var openDocument: Document = Document.EMPTY
+    private var openDocument: Document = Document.EMPTY
 
-  override fun setOpenDocument(document: Document) {
-    openDocument = document
-  }
+    override fun setOpenDocument(document: Document) {
+        openDocument = document
+    }
 
-  override fun getOpenDocument() = openDocument
+    override fun getOpenDocument() = openDocument
 }
