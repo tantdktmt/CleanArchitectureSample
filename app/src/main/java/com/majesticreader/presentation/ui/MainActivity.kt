@@ -28,7 +28,7 @@
  * THE SOFTWARE.
  */
 
-package com.majesticreader.presentation
+package com.majesticreader.presentation.ui
 
 import android.os.Bundle
 import androidx.core.view.GravityCompat
@@ -40,8 +40,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import com.majesticreader.R
 import com.majesticreader.domain.entity.Document
-import com.majesticreader.presentation.library.LibraryFragment
-import com.majesticreader.presentation.reader.ReaderFragment
+import com.majesticreader.presentation.ui.library.LibraryFragment
+import com.majesticreader.presentation.ui.reader.ReaderFragment
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener,

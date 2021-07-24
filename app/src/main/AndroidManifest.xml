@@ -13,13 +13,13 @@
         android:theme="@style/AppTheme">
 
         <activity
-            android:name=".presentation.MainActivity"
+            android:name=".presentation.ui.MainActivity"
             android:label="@string/title_activity_main"
             android:theme="@style/AppTheme.NoActionBar" />
 
         <!-- Splash Activity -->
         <activity
-            android:name=".presentation.SplashActivity"
+            android:name=".presentation.ui.SplashActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

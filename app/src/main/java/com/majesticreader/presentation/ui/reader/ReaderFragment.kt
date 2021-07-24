@@ -28,7 +28,7 @@
  * THE SOFTWARE.
  */
 
-package com.majesticreader.presentation.reader
+package com.majesticreader.presentation.ui.reader
 
 import android.app.Activity
 import android.content.Intent
@@ -44,8 +44,8 @@ import androidx.lifecycle.ViewModelProviders
 import com.majesticreader.R
 import com.majesticreader.domain.entity.Document
 import com.majesticreader.framework.MajesticViewModelFactory
-import com.majesticreader.presentation.IntentUtil
-import com.majesticreader.presentation.library.LibraryFragment
+import com.majesticreader.presentation.util.IntentUtil
+import com.majesticreader.presentation.ui.library.LibraryFragment
 import kotlinx.android.synthetic.main.fragment_reader.*
 
 class ReaderFragment : Fragment() {

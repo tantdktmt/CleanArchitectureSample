@@ -28,7 +28,7 @@
  * THE SOFTWARE.
  */
 
-package com.majesticreader.presentation.library
+package com.majesticreader.presentation.ui.library
 
 import android.app.Activity
 import android.content.Context
@@ -43,8 +43,8 @@ import androidx.lifecycle.ViewModelProviders
 import com.bumptech.glide.Glide
 import com.majesticreader.R
 import com.majesticreader.framework.MajesticViewModelFactory
-import com.majesticreader.presentation.IntentUtil.createOpenIntent
-import com.majesticreader.presentation.MainActivityDelegate
+import com.majesticreader.presentation.util.IntentUtil.createOpenIntent
+import com.majesticreader.presentation.ui.MainActivityDelegate
 import kotlinx.android.synthetic.main.fragment_library.*
 import java.lang.ClassCastException
 

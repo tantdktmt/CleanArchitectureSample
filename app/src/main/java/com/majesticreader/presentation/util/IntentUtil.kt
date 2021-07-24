@@ -28,7 +28,7 @@
  * THE SOFTWARE.
  */
 
-package com.majesticreader.presentation
+package com.majesticreader.presentation.util
 
 import android.content.Intent
 

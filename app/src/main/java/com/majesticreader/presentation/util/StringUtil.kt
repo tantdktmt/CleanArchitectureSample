@@ -28,41 +28,26 @@
  * THE SOFTWARE.
  */
 
-package com.majesticreader.presentation.library
+package com.majesticreader.presentation.util
 
-import android.app.Application
-import android.net.Uri
-import androidx.lifecycle.MutableLiveData
-import com.majesticreader.domain.entity.Document
-import com.majesticreader.framework.Usecases
-import com.majesticreader.framework.MajesticViewModel
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
+import java.text.DecimalFormat
 
-class LibraryViewModel(application: Application, usecases: Usecases) :
-    MajesticViewModel(application, usecases) {
+object StringUtil {
 
-    val documents: MutableLiveData<List<Document>> = MutableLiveData()
-
-    fun loadDocuments() {
-        GlobalScope.launch {
-            documents.postValue(usecases.getDocuments())
+    /**
+     * Convenience method for formatting file size.
+     * Taken from: https://stackoverflow.com/a/5599842/2914696
+     */
+    fun readableFileSize(size: Int): String {
+        if (size <= 0) {
+            return "0"
         }
-    }
 
-    fun addDocument(uri: Uri) {
-        GlobalScope.launch {
-            withContext(Dispatchers.IO) {
-                usecases.addDocument(Document(uri.toString(), "", 0, ""))
-            }
+        val units = arrayOf("B", "kB", "MB", "GB", "TB")
+        val digitGroups = (Math.log10(size.toDouble()) / Math.log10(1024.0)).toInt()
 
-            loadDocuments()
-        }
-    }
-
-    fun setOpenDocument(document: Document) {
-        usecases.setOpenDocument(document)
+        return DecimalFormat("#,##0.#").format(
+            size / Math.pow(1024.0, digitGroups.toDouble())
+        ) + " " + units[digitGroups]
     }
 }

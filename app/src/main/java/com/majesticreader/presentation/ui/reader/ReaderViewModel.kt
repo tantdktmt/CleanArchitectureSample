@@ -28,7 +28,7 @@
  * THE SOFTWARE.
  */
 
-package com.majesticreader.presentation.reader
+package com.majesticreader.presentation.ui.reader
 
 import android.app.Application
 import android.graphics.pdf.PdfRenderer

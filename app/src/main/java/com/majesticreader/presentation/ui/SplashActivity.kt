@@ -28,47 +28,56 @@
  * THE SOFTWARE.
  */
 
-package com.majesticreader.presentation.reader
+package com.majesticreader.presentation.ui
 
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import android.widget.TextView
-import androidx.recyclerview.widget.RecyclerView
+import android.content.Intent
+import android.os.Bundle
+import android.os.Handler
+import androidx.appcompat.app.AppCompatActivity
+import android.view.Window
+import android.view.WindowManager
 import com.majesticreader.R
-import com.majesticreader.domain.entity.Bookmark
-import kotlinx.android.synthetic.main.item_bookmark.view.*
 
-class BookmarksAdapter(
-    private val bookmarks: MutableList<Bookmark> = mutableListOf(),
-    private val itemClickListener: (Bookmark) -> Unit
-) : RecyclerView.Adapter<BookmarksAdapter.ViewHolder>() {
+/**
+ * Splash Screen with the app icon and name at the center, this is also the launch screen and
+ * opens up in fullscreen mode. Once launched it waits for 2 seconds after which it opens the
+ * MainActivity
+ */
+class SplashActivity : AppCompatActivity() {
 
-    class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        val titleTextView: TextView = view.bookmarkNameTextView
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        makeFullScreen()
+
+        setContentView(R.layout.activity_splash)
+
+        // Using a handler to delay loading the MainActivity
+        Handler().postDelayed({
+
+            // Start activity
+            startActivity(Intent(this, MainActivity::class.java))
+
+            // Animate the loading of new activity
+            overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
+
+            // Close this activity
+            finish()
+
+        }, 2000)
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        return ViewHolder(
-            LayoutInflater.from(parent.context)
-                .inflate(R.layout.item_bookmark, parent, false)
+    private fun makeFullScreen() {
+        // Remove Title
+        requestWindowFeature(Window.FEATURE_NO_TITLE)
+
+        // Make Fullscreen
+        window.setFlags(
+            WindowManager.LayoutParams.FLAG_FULLSCREEN,
+            WindowManager.LayoutParams.FLAG_FULLSCREEN
         )
-    }
 
-    override fun getItemCount() = bookmarks.size
-
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.titleTextView.text = holder.itemView.resources.getString(
-            R.string.page_bookmark_format,
-            bookmarks[position].page
-        )
-        holder.itemView.setOnClickListener { itemClickListener.invoke(bookmarks[position]) }
-    }
-
-    fun update(newBookmarks: List<Bookmark>) {
-        bookmarks.clear()
-        bookmarks.addAll(newBookmarks)
-
-        notifyDataSetChanged()
+        // Hide the toolbar
+        supportActionBar?.hide()
     }
 }
