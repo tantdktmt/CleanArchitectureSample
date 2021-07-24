@@ -2,7 +2,7 @@ package com.raywenderlich.android.majesticreader.framework
 
 import android.content.Context
 import com.raywenderlich.android.majesticreader.data.DocumentDataSource
-import com.raywenderlich.android.majesticreader.domain.Document
+import com.raywenderlich.android.majesticreader.domain.entity.Document
 import com.raywenderlich.android.majesticreader.framework.db.DocumentEntity
 import com.raywenderlich.android.majesticreader.framework.db.MajesticReaderDatabase
 

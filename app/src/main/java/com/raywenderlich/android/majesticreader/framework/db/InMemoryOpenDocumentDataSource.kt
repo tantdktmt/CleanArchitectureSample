@@ -1,7 +1,7 @@
 package com.raywenderlich.android.majesticreader.framework.db
 
 import com.raywenderlich.android.majesticreader.data.OpenDocumentDataSource
-import com.raywenderlich.android.majesticreader.domain.Document
+import com.raywenderlich.android.majesticreader.domain.entity.Document
 
 class InMemoryOpenDocumentDataSource : OpenDocumentDataSource {
 

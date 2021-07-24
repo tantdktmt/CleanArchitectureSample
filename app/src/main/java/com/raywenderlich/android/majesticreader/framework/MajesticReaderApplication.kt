@@ -31,10 +31,10 @@
 package com.raywenderlich.android.majesticreader.framework
 
 import android.app.Application
-import com.raywenderlich.android.majesticreader.data.BookmarkRepository
-import com.raywenderlich.android.majesticreader.data.DocumentRepository
+import com.raywenderlich.android.majesticreader.domain.repository.BookmarkRepository
+import com.raywenderlich.android.majesticreader.domain.repository.DocumentRepository
+import com.raywenderlich.android.majesticreader.domain.usercase.*
 import com.raywenderlich.android.majesticreader.framework.db.InMemoryOpenDocumentDataSource
-import com.raywenderlich.android.majesticreader.interactors.*
 
 class MajesticReaderApplication : Application() {
 

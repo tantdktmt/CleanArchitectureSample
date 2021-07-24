@@ -1,6 +1,6 @@
 package com.raywenderlich.android.majesticreader.data
 
-import com.raywenderlich.android.majesticreader.domain.Document
+import com.raywenderlich.android.majesticreader.domain.entity.Document
 
 interface OpenDocumentDataSource {
 

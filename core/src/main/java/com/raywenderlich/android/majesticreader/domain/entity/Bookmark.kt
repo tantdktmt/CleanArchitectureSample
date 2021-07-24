@@ -28,6 +28,6 @@
  * THE SOFTWARE.
  */
 
-package com.raywenderlich.android.majesticreader.domain
+package com.raywenderlich.android.majesticreader.domain.entity
 
 data class Bookmark (val id: Int = 0, val page: Int)

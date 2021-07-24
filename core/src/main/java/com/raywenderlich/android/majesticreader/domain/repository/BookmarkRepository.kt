@@ -1,7 +1,8 @@
-package com.raywenderlich.android.majesticreader.data
+package com.raywenderlich.android.majesticreader.domain.repository
 
-import com.raywenderlich.android.majesticreader.domain.Bookmark
-import com.raywenderlich.android.majesticreader.domain.Document
+import com.raywenderlich.android.majesticreader.data.BookmarkDataSource
+import com.raywenderlich.android.majesticreader.domain.entity.Bookmark
+import com.raywenderlich.android.majesticreader.domain.entity.Document
 
 class BookmarkRepository(private val dataSource: BookmarkDataSource) {
   suspend fun addBookmark(document: Document, bookmark: Bookmark) =

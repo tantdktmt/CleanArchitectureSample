@@ -2,8 +2,8 @@ package com.raywenderlich.android.majesticreader.framework
 
 import android.content.Context
 import com.raywenderlich.android.majesticreader.data.BookmarkDataSource
-import com.raywenderlich.android.majesticreader.domain.Bookmark
-import com.raywenderlich.android.majesticreader.domain.Document
+import com.raywenderlich.android.majesticreader.domain.entity.Bookmark
+import com.raywenderlich.android.majesticreader.domain.entity.Document
 import com.raywenderlich.android.majesticreader.framework.db.BookmarkEntity
 import com.raywenderlich.android.majesticreader.framework.db.MajesticReaderDatabase
 
